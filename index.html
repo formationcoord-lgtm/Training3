@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Making a Difference in the World </title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+
+    :root {
+      --color-dark: #4b3621;
+      --color-mid: #846b47;
+      --color-highlight: #d83038;
+      --color-bg-light: #f5f0e8;
+      --color-bg-dark: #8a6e4e;
+      --font-serif: 'Merriweather', serif;
+      --font-sans: 'Arial', sans-serif;
+      --radius: 10px;
+      --shadow-light: rgba(0,0,0,0.12);
+      --shadow-medium: rgba(0,0,0,0.25);
+      --shadow-strong: rgba(0,0,0,0.30);
+      --transition-ease: 0.3s ease;
+    }
+
+    /* Reset and base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: linear-gradient(to bottom, var(--color-bg-light) 0%, var(--color-bg-dark) 100%);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: var(--color-dark);
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: var(--color-highlight);
+      text-decoration: none;
+      transition: color var(--transition-ease);
+    }
+    a:hover, a:focus {
+      color: rgba(216,48,56,0.8);
+      text-decoration: underline;
+      outline: none;
+    }
+
+    /* Wrapper container: centered, fluid, max width */
+    .container {
+      margin: 30px auto;
+      padding: 40px 5%;
+      max-width: 960px;
+      background: rgba(245,240,232,0.97);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 32px var(--shadow-light);
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .header-logos {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .header-logos a {
+      display: inline-block;
+      filter: drop-shadow(0 1px 1.5px rgba(0,0,0,0.12));
+      transition: transform var(--transition-ease);
+      cursor: pointer;
+    }
+
+    .header-logos a:hover,
+    .header-logos a:focus {
+      transform: scale(1.12);
+      outline: none;
+    }
+
+    .header-logos img {
+      height: 55px;
+      width: auto;
+      object-fit: contain;
+      border-radius: 6px;
+      background: rgba(245,240,232,0.98);
+      padding: 4px 8px;
+      box-shadow: 0 3px 10px var(--shadow-light);
+      user-select: none;
+      pointer-events: none;
+    }
+
+    h1 {
+      font-family: var(--font-serif);
+      color: #9b3d1f;
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      margin-bottom: 10px;
+      user-select: none;
+      line-height: 1.15;
+      letter-spacing: 2px;
+    }
+    h2 {
+      font-family: var(--font-serif);
+      color: #9b3d1f;
+      font-size: clamp(1.5rem, 4vw, 2.7rem);
+      margin-bottom: 10px;
+      user-select: none;
+      line-height: 1.15;
+      letter-spacing: 2px;
+    }
+
+    .heading-text {
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      color: var(--color-mid);
+      font-weight: 900;
+      letter-spacing: 2.4px;
+      user-select: none;
+      margin-top: 2px;
+    }
+
+    .erasmus-text {
+      font-size: clamp(0.9rem, 1.9vw, 1.1rem);
+      color: var(--color-mid);
+      margin-top: 8px;
+      font-style: italic;
+      letter-spacing: 2px;
+      font-weight: 600;
+      user-select: none;
+    }
+
+    /* Image container */
+    .image-container {
+      width: 90%;
+      max-width: 900px;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius);
+      box-shadow: 0 14px 38px var(--shadow-light);
+      overflow: hidden;
+      margin: 30px auto 24px;
+      background: rgba(245,240,232,0.95);
+      position: relative;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      clip-path: inset(var(--crop-top, 0px) var(--crop-right, 25px) var(--crop-bottom, 0px) var(--crop-left, 35px));
+      border-radius: var(--radius);
+      user-select: none;
+      pointer-events: none;
+      transition: clip-path var(--transition-ease);
+      display: block;
+    }
+
+    figure figcaption {
+      margin: 12px auto 0;
+      font-style: italic;
+      color: #7a6650;
+      font-size: 1rem;
+      text-align: center;
+      max-width: 900px;
+      user-select: none;
+      padding: 0 5%;
+    }
+
+    /* Features section */
+    .features {
+      display: flex;
+      gap: 36px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      width: 100%;
+    }
+
+    .feature {
+      background: rgba(245,240,232,0.98);
+      border-radius: var(--radius);
+      padding: 30px 24px;
+      box-shadow: inset 0 0 20px rgba(245,240,232,0.95);
+      flex: 1 1 300px;
+      max-width: 450px;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.28s ease;
+      cursor: default;
+    }
+
+    .feature:hover,
+    .feature:focus-within {
+      box-shadow: 0 14px 32px rgba(103, 70, 21, 0.48);
+      outline: none;
+    }
+
+    .feature h2 {
+      font-family: var(--font-serif);
+      color: #7b4f2e;
+      border-bottom: 3px solid rgba(245,240,232,0.96);
+      padding-bottom: 10px;
+      margin: 0 0 20px;
+      font-size: clamp(1.5rem, 2vw, 2.1rem);
+      user-select: none;
+    }
+
+    .feature ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      color: var(--color-dark);
+      font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+
+    .feature ul li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 16px;
+    }
+
+    .feature ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #b18d4a;
+      font-size: 1.7rem;
+      line-height: 1;
+      top: 3px;
+    }
+
+    .feature figure {
+      margin: 24px 0 0;
+      text-align: center;
+      border: none;
+      box-shadow: none;
+      background: none;
+    }
+
+    .feature figure img {
+      border-radius: var(--radius);
+      max-width: 100%;
+      height: auto;
+      box-shadow: 0 7px 22px rgba(0, 0, 0, 0.18);
+      transition: transform var(--transition-ease), box-shadow var(--transition-ease);
+      cursor: pointer;
+    }
+
+    .feature figure img:hover,
+    .feature figure img:focus {
+      transform: scale(1.07);
+      box-shadow: 0 10px 34px var(--shadow-strong);
+      outline: none;
+    }
+
+    .feature figcaption {
+      font-style: italic;
+      color: #6f573a;
+      font-size: 1rem;
+      margin-top: 10px;
+      user-select: none;
+    }
+
+    /* Bottom band */
+    .bottom-band {
+      max-width: 95%;
+      margin: 0 auto 50px;
+      font-style: italic;
+      color: #705a31;
+      text-align: center;
+      font-size: clamp(1rem, 1.6vw, 1.3rem);
+      padding: 14px 5%;
+      border-top: 2px solid #d6c6a3;
+      font-weight: 500;
+      user-select: none;
+      box-sizing: border-box;
+      line-height: 1.55;
+      
+    }
+    .bold-text {
+  font-weight: 900;
+  font-family: var(--font-serif);
+}
+
+
+    /* Facilitator Section */
+    .facilitator-section {
+      background-color: rgba(245,240,232,0.97);
+      color: var(--color-dark);
+      width: 90%;
+      max-width: 960px;
+      margin: 50px auto;
+      padding: 30px 5%;
+      border-radius: var(--radius);
+      box-shadow: 0 12px 30px var(--shadow-light);
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .facilitator-container {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+      justify-content: center;
+    }
+
+    .facilitator-portrait {
+      width: 180px;
+      border-radius: var(--radius);
+      object-fit: cover;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px var(--shadow-light);
+      user-select: none;
+    }
+
+    .facilitator-bio {
+      flex: 1;
+      min-width: 250px;
+      max-width: 600px;
+      text-align: left;
+    }
+
+    .facilitator-bio h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3vw, 2.3rem);
+      margin-top: 0;
+      color: #4a3721;
+      font-weight: 700;
+      user-select: none;
+      line-height: 1.1;
+    }
+
+    .facilitator-bio p {
+      font-size: clamp(1rem, 1.7vw, 1.15rem);
+      line-height: 1.6;
+      margin-top: 12px;
+      color: var(--color-dark);
+    }
+
+    .facilitator-activity {
+      margin-top: 20px;
+      text-align: center;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.18);
+      background: rgba(245,240,232,0.97);
+      width: 90%;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .facilitator-activity img {
+      width: 100%;
+      height: auto;
+      display: block;
+      user-select: none;
+    }
+
+    .facilitator-activity figcaption {
+      padding: 18px 12px;
+      font-style: italic;
+      font-size: 1rem;
+      color: #5a4a33;
+      user-select:none;
+    }
+
+    /* Partners Section */
+    .partners-section {
+      background-color: #7e6144;
+      color: #ddd;
+      padding: 42px 5%;
+      margin: 40px auto;
+      max-width: 960px;
+      border-radius: var(--radius);
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .partners-section h2{
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3vw, 2.3rem);
+      margin-top: 0;
+      color: whitesmoke;
+      font-weight: 700;
+      user-select: none;
+      line-height: 1.1;
+    }
+    .partners-section p {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      user-select: none;
+      max-width: 840px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .partners-logos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      background: transparent;
+      margin-top: 10px;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .partners-logos a img {
+      height: 140px;
+      width: auto;
+      background-color: #f7f5ee;
+      border-radius: 12px;
+      box-shadow: 0 5px 16px rgba(0,0,0,0.12);
+      padding: 14px;
+      cursor: pointer;
+      transition: transform var(--transition-ease), box-shadow var(--transition-ease);
+      display: block;
+      user-select: none;
+    }
+
+    .partners-logos a img:hover,
+    .partners-logos a img:focus {
+      transform: scale(1.13);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+      outline: none;
+    }
+
+    /* Accommodation Section */
+    .accommodation-section {
+      background-color: #7e6144;
+      color: rgba(245,240,232,0.95);
+      padding: 42px 5%;
+      max-width: 960px;
+      margin: 40px auto;
+      border-radius: var(--radius);
+      box-sizing: border-box;
+      text-align: center;
+    }
+    
+    /* New partner-title class for section titles matching facilitator title font */
+    .partner-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3vw, 2.3rem);
+      margin-top: 0;
+      color: whitesmoke;
+      font-weight: 700;
+      user-select: none;
+      line-height: 1.1;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      font-weight: 700;
+      text-transform: Normal;
+      margin-bottom: 28px;
+      letter-spacing: 6px;
+      user-select: none;
+      color: #e6d9be;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    }
+
+    .accommodation-info {
+      font-size: clamp(1rem, 2vw, 1.18rem);
+      max-width: 680px;
+      margin: 0 auto 38px;
+      line-height: 1.55;
+      text-align: center;
+      user-select: text;
+    }
+
+    .hotel-link {
+      color: #e6d9be;
+      text-decoration: underline;
+      font-weight: 600;
+      margin-left: 5px;
+      transition: color var(--transition-ease);
+    }
+
+    .hotel-link:hover,
+    .hotel-link:focus {
+      color: #ddd;
+      outline: none;
+    }
+
+    .accommodation-container {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .locations-container {
+      display: flex;
+      gap: 38px;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 920px;
+      margin: auto;
+    }
+
+    .location-info {
+      flex: 1 1 420px;
+      max-width: 480px;
+      border-radius: var(--radius);
+      background: rgba(255 255 255 / 0.18);
+      padding: 18px 22px;
+      box-shadow: 0 7px 22px var(--shadow-medium);
+      color: rgba(245,240,232,0.95);
+      box-sizing: border-box;
+      user-select: text;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .location-info h3 {
+      font-size: clamp(1.5rem, 3vw, 1.95rem);
+      font-weight: 700;
+      margin: 0 0 18px;
+      user-select: none;
+      color: #f0e5d7;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.35);
+      width: 100%;
+    }
+
+    .map-container {
+      width: 100%;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 8px 18px var(--shadow-medium);
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 260px;
+      border: none;
+      user-select: none;
+    }
+
+    /* Deadline Section */
+    .deadline-section {
+      background: rgba(245,240,232,0.97);
+      padding: 30px 5%;
+      max-width: 960px;
+      margin: 65px auto 52px;
+      border-radius: var(--radius);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      box-sizing: border-box;
+      gap: 20px;
+      box-shadow: 0 6px 20px var(--shadow-light);
+    }
+
+    .deadline-info {
+      max-width: 700px;
+      font-family: var(--font-sans);
+      color: #4a422b;
+    }
+
+    .deadline-label {
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      color: #555;
+      user-select: none;
+      letter-spacing: 1.7px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .deadline-date {
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin: 6px 0 15px 0;
+      color: #222;
+      user-select: text;
+      line-height: 1.1;
+    }
+
+    .highlight-date {
+      color: var(--color-highlight);
+    }
+
+    .deadline-info p {
+      margin: 10px 0;
+      font-size: 1.12rem;
+      color: #333;
+      line-height: 1.4;
+      user-select: text;
+    }
+
+    .apply-button {
+      background-color: var(--color-highlight);
+      color: #efe4d6;
+      padding: 16px 32px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      user-select: none;
+      white-space: nowrap;
+      transition: background-color var(--transition-ease), box-shadow 0.25s ease;
+      cursor: pointer;
+      min-width: 180px;
+      text-align: center;
+      margin-top: 10px;
+      flex-shrink: 0;
+      display: inline-block;
+      box-shadow: 0 5px 15px rgba(216,48,56,0.8);
+    }
+
+    .apply-button:hover,
+    .apply-button:focus {
+      background-color: #f0eeed;
+      outline: none;
+      box-shadow: 0 0 10px 4px #efe4d6;
+    }
+
+    /* Footer */
+    .page-footer {
+      background-color: #efe4d6;
+      display: flex;
+      justify-content: space-between;
+      max-width: 960px;
+      margin: 0 auto 36px;
+      padding: 28px 5%;
+      border-radius: var(--radius);
+      font-family: var(--font-sans);
+      color: #5a4b3c;
+      flex-wrap: wrap;
+      box-sizing: border-box;
+      user-select: none;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex: 1 1 280px;
+      min-width: 280px;
+    }
+
+    .footer-logo {
+      width: 56px;
+      height: auto;
+      user-select: none;
+    }
+
+    .footer-text {
+      font-weight: 700;
+      font-size: 1.35rem;
+      line-height: 1.1;
+    }
+
+    .footer-right {
+      flex: 1 1 220px;
+      min-width: 220px;
+      font-size: 1rem;
+      user-select: text;
+      text-align: left;
+    }
+
+    .footer-right h3 {
+      margin-top: 0;
+      font-weight: 700;
+      color: #7c6243;
+      letter-spacing: 1.1px;
+      user-select: none;
+    }
+
+    .footer-right p {
+      margin: 6px 0;
+    }
+
+    .footer-right a {
+      color: #5a4b3c;
+      text-decoration: none;
+      transition: color var(--transition-ease);
+    }
+
+    .footer-right a:hover,
+    .footer-right a:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+
+    .footer-center {
+      flex: 1 1 100%;
+      text-align: center;
+      font-style: italic;
+      margin-top: 24px;
+      font-weight: 600;
+      color: #7c6243;
+      user-select: none;
+    }
+
+    /* Back to top button */
+    #back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background-color: var(--color-highlight);
+      color: #efe4d6;
+      padding: 14px 18px;
+      border-radius: 50%;
+      font-size: 24px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 0 8px var(--color-highlight);
+      border: none;
+      user-select: none;
+      display: none;
+      z-index: 9999;
+      transition: background-color var(--transition-ease);
+    }
+
+    #back-to-top:hover,
+    #back-to-top:focus {
+      background-color: rgba(216,48,56,0.8);
+      outline: none;
+      box-shadow: 0 0 12px 3px rgba(216,48,56,0.8);
+    }
+
+    /* Responsive */
+    @media (max-width: 760px) {
+      .container {
+        padding: 30px 5%;
+        margin: 20px auto;
+      }
+
+      h1 {
+        font-size: 2.4rem;
+      }
+      .header-logos {
+        gap: 22px;
+      }
+      .header-logos img {
+        height: 45px;
+        padding: 3px 5px;
+      }
+      .features {
+        flex-direction: column;
+        margin-bottom: 36px;
+        gap: 24px;
+      }
+      .feature {
+        max-width: 100%;
+      }
+      .bottom-band {
+        font-size: 1.1rem;
+        padding: 14px 5%;
+      }
+      .image-container {
+        height: auto;
+        aspect-ratio: unset;
+        max-height: 300px;
+        width: 95%;
+        margin: 24px auto 20px;
+      }
+      .deadline-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .apply-button {
+        min-width: 100%;
+        text-align: center;
+      }
+      .page-footer {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 28px;
+        padding: 28px 5%;
+      }
+      .footer-left, .footer-right, .footer-center {
+        flex: none;
+        min-width: auto;
+      }
+      .footer-left {
+        justify-content: center;
+      }
+      .accommodation-container {
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+      }
+      .location-info {
+        max-width: 100%;
+      }
+      .map-container iframe {
+        height: 220px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+        letter-spacing: 1.2px;
+      }
+      .header-logos img {
+        height: 38px;
+        padding: 2px 4px;
+      }
+      .erasmus-text,
+      .heading-text {
+        font-size: 1rem;
+        letter-spacing: 1.2px;
+      }
+      .bottom-band {
+        font-size: 1rem;
+        padding: 12px 5%;
+      }
+      .accommodation-info {
+        font-size: 1rem;
+        padding: 0 12px;
+      }
+      .facilitator-section {
+        padding: 25px 15px 35px;
+      }
+      .deadline-date {
+        font-size: 1.4rem;
+      }
+      .deadline-info p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container" role="main">
+
+    <header aria-label="Training header with logos and title">
+      <div class="header-logos" role="img" aria-label="Organizational logos">
+        <a href="https://zakmalta.org" target="_blank" rel="noopener noreferrer" aria-label="Żak Malta website">
+          <img src="ŻAKlog.png" alt="ŻAK Malta logo" />
+        </a>
+        <a href="https://erasmus-plus.ec.europa.eu" target="_blank" rel="noopener noreferrer" aria-label="Erasmus Plus website">
+          <img src="Cofunded Erasmus PNG.png" alt="Erasmus+ Cofunded logo" />
+        </a>
+        <a href="https://fondi.eu/eupa/" target="_blank" rel="noopener noreferrer" aria-label="EUPA website">
+          <img src="EupaLogo.png" alt="EUPA logo" />
+        </a>
+        <a href="https://youth.gov.mt" target="_blank" rel="noopener noreferrer" aria-label="Agenzija Żgħażagħ website">
+          <img src="Agenzija.png.webp" alt="Agenzija Żgħażagħ logo" />
+        </a>
+      </div>
+
+      <h1>MAKING A DIFFERENCE IN THE WORLD </h1>
+      <p class="heading-text">9-13 SEPTEMBER 2027</p>
+      <p class="erasmus-text">Birkirkara, Malta</p>
+    </header>
+
+    <div class="image-container" aria-label="Interactive training photo cropping">
+      <img id="crop-image" src="training.JPG" alt="Participants engaging in a youth leadership training activity" />
+    </div>
+    <figure>
+      <figcaption>Participants during our Training last year.</figcaption>
+    </figure>
+    <section class="bottom-band" aria-live="polite">
+      This Training is for Youth leaders aged strictly between <span class="bold-text">16-19</span>
+ and every group has to be accompanied by an <span class="bold-text">18+ Leader</span>
+      <p>The main objective of the training is to empower youth leaders by enhancing their understanding of faith, history, and youth work, while building intercultural connections and practical skills to make a positive impact within their communities and through international youth projects.</p>
+    </section>
+    <section class="features" aria-label="Training learning objectives and experience">
+      <article class="feature" aria-labelledby="learn-title" tabindex="0">
+        <h2 id="learn-title">What you will learn:</h2>
+        <ul>
+          <li>The connection between faith, history, and youth leadership</li>
+          <li>How to share and appreciate diverse national faith stories</li>
+          <li>The role of lay people and youth work in the Church and society</li>
+          <li>Practical aspects of Erasmus+ youth exchanges and Youthpass certification</li>
+          <li>Skills for teamwork, communication, and project dissemination</li>
+        </ul>
+        <figure>
+          <img src="training1.JPG" alt="Youth leaders sharing experiences during training" />
+          <figcaption>Youth leaders sharing experiences and reflections during a session.</figcaption>
+        </figure>
+      </article>
+
+      <article class="feature" aria-labelledby="experience-title" tabindex="0">
+        <h2 id="experience-title">What you will experience:</h2>
+        <ul>
+          <li>Team-building and cultural exchange with participants from six countries</li>
+          <li>Visits to important faith heritage sites like St Paul’s Grotto and Catacombs</li>
+          <li>Personal reflection time and group discussions on challenges and motivations</li>
+          <li>International evening with food, games, and dancing</li>
+          <li>A closing Mass and a farewell beach event at Golden Bay</li>
+        </ul>
+        <figure>
+          <img src="training2.JPG" alt="Group event during the training" />
+          <figcaption>Group event highlighting cultural exchange and team building.</figcaption>
+        </figure>
+      </article>
+    </section>
+
+
+
+  </main>
+
+  <section class="facilitator-section" aria-labelledby="facilitator-title">
+    <div class="facilitator-container">
+      <img src="ŻAKlog.png" alt="Facilitator portrait" class="facilitator-portrait" />
+
+      <div class="facilitator-bio">
+        <h2 id="facilitator-title">Meet the Host Organisation</h2>
+        <p>
+          ŻAK Malta is a well-established organization with extensive experience in Catholic youth work. Known for hosting multiple national and international training programs, it empowers young people through faith-based initiatives that foster spiritual growth, leadership, and active participation in the Church and society.
+        </p>
+      </div>
+    </div>
+    <figure class="facilitator-activity">
+      <img src="faciltators.jpg" alt="Group team-building exercise outdoors" />
+      <figcaption>Facilitator leading a workshop during last year's training.</figcaption>
+    </figure>
+  </section>
+
+  <section class="partners-section" aria-label="Our partners">
+    <h2 class="partner-title">Meet the Participating Organisations</h2>
+    <p>
+      These are the partner organisations: Catholic Action groups from Malta, Italy, Romania and Spain who are full members of FIAC, together with ERKO and Diocese of Limerick. See what they have been up to on their socials.
+    </p>
+    <div class="partners-logos">
+      <a href="https://www.instagram.com/zak_malta/" target="_blank" rel="noopener noreferrer" aria-label="Partner 0 Instagram">
+        <img src="ŻAKlog.png" alt="Partner 0 logo" />
+      </a>
+      <a href="https://www.instagram.com/azionecattolica/" target="_blank" rel="noopener noreferrer" aria-label="Partner 1 Instagram">
+        <img src="ACI.svg" alt="Partner 1 logo" />
+      </a>
+      <a href="https://www.instagram.com/actiuneacatolica/" target="_blank" rel="noopener noreferrer" aria-label="Partner 2 Instagram">
+        <img src="ACRO.svg" alt="Partner 2 logo" />
+      </a>
+      <a href="https://www.instagram.com/acgjovenes/" target="_blank" rel="noopener noreferrer" aria-label="Partner 3 Instagram">
+        <img src="jovenes.svg" alt="Partner 3 logo" />
+      </a>
+      <a href="https://www.instagram.com/erko_hksd/" target="_blank" rel="noopener noreferrer" aria-label="Partner 4 Instagram">
+        <img src="ErkoLogo.png" alt="Partner 4 logo" />
+      </a>
+      <a href="https://www.instagram.com/limerick_diocese/" target="_blank" rel="noopener noreferrer" aria-label="Partner 5 Instagram">
+        <img src="Limerick.png" alt="Partner 5 logo" />
+      </a>
+    </div>
+  </section>
+
+  <section class="accommodation-section" aria-labelledby="accommodation-title">
+    <h2 id="accommodation-title" class="partner-title">Accommodation</h2>
+
+    <p class="accommodation-info">
+      The training will take place in Birkirkara, Malta. Accommodation is in bunk beds (6-7 people) at
+      <a href="https://zakmalta.org/zak-house/" target="_blank" rel="noopener noreferrer" class="hotel-link">ŻAK House</a>,
+      or shared rooms (2-4 people) at
+      <a href="https://www.rivotortomalta.com" target="_blank" rel="noopener noreferrer" class="hotel-link">Rivotorto</a>.
+      Sheets and towels are provided.
+    </p>
+
+    <div class="accommodation-container">
+      <div class="locations-container">
+        <div class="location-info">
+          <a href="https://zakmalta.org/zak-house/" target="_blank" rel="noopener noreferrer" class="hotel-link"><h3>ŻAK House</h3></a>
+          <div class="map-container">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3231.975446707789!2d14.459950912471033!3d35.89861701788511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x130e50031df8f7d7%3A0x5f6f26cc3740d0d7!2s%C5%BBAK%20House!5e0!3m2!1sen!2smt!4v1793955470883!5m2!1sen!2smt" 
+              width="100%" height="250" allowfullscreen="" loading="lazy" title="ŻAK House location" referrerpolicy="strict-origin-when-cross-origin" aria-hidden="false" tabindex="0">
+            </iframe>
+          </div>
+        </div>
+
+        <div class="location-info">
+          <a href="https://www.rivotortomalta.com" target="_blank" rel="noopener noreferrer" class="hotel-link"><h3>Rivotorto</h3></a>
+          <div class="map-container">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.6392813631376!2d14.43055351572009!3d35.9397855803187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x130e4a0ac8330ba3%3A0x9a0dcd6a0b4e5c96!2sRivotor%20Malta!5e0!3m2!1sen!2smt!4v1606729829987!5m2!1sen!2smt" 
+              width="100%" height="250" allowfullscreen="" loading="lazy" title="Rivotorto Malta location" referrerpolicy="strict-origin-when-cross-origin" aria-hidden="false" tabindex="0">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="deadline-section" aria-labelledby="deadline-title">
+    <div class="deadline-info">
+      <span class="deadline-label">Deadline application:</span>
+      <h2 id="deadline-title" class="deadline-date">The deadline for submitting application is <span class="highlight-date">April 1st 2027</span>.</h2>
+      <p>You must transfer <strong>50 Euros</strong> to finalize the application. The money will be returned after the training.
+        <br>If you cancel later than April 30th, the money won't be returned.</p>
+      <p><strong>Bank account (IBAN):</strong> MT42VALL22013000000040024040899</p>
+      <p><strong>Account holder:</strong> ŻGĦAŻAGĦ AZZJONI KATTOLIKA</p>
+    </div>
+    <a href="https://forms.gle/jPMpb2hu2QRRMqaS6" class="apply-button" role="button" aria-label="Apply to training" target="_blank" rel="noopener noreferrer">APPLY HERE</a>
+  </section>
+
+  <footer class="page-footer" role="contentinfo">
+    <div class="footer-left">
+      <img src="ŻAKlog.png" alt="ŻAK logo" class="footer-logo" />
+      <div class="footer-text">
+        ŻAK<br/>
+        Żgħażagħ Azzjoni Kattolika
+      </div>
+    </div>
+
+    <div class="footer-right" aria-label="Contact information">
+      <h3>CONTACTS</h3>
+      <p>Andreas Muscat</p>
+      <p><a href="mailto:formation.coord@zakmalta.org">formation.coord@zakmalta.org</a></p>
+      <p>+356 77719240</p>
+    </div>
+
+    <div class="footer-center">
+      See you at the training!
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to top">↑</button>
+
+  <script>
+    // Back-to-top button logic
+    const backToTopBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTopBtn.style.display = 'block';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>
